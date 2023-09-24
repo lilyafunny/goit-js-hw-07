@@ -28,20 +28,18 @@ function handleClick(event) {
     return;
   }
 
-  const img = event.target.closest(".gallery__image");
-  console.log(img);
-  img.setAttribute("src", img.dataset.source);
+  const img = event.target.dataset.source;
 
-  const instance = basicLightbox.create(`
+  const instance = basicLightbox.create(
+    `
     <div class="modal">
         <img
-            class="gallery__image"
-             src="${img.preview}"
-            data-source="${img.original}"
-            alt="${img.description}"
+             src="${img}"
+            alt="${img}"
           />
     </div>
-`);
+`
+  );
 
   instance.show();
 }
